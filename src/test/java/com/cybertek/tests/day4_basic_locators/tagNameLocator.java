@@ -24,6 +24,7 @@ public class tagNameLocator {
 
         Thread.sleep(3000);
 
+
         //close browser
         driver.quit();
     }
