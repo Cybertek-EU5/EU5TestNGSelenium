@@ -26,10 +26,9 @@ public class BeforeAfterMethod {
     public void test3(){
         System.out.println("Third Test Case");
     }
+
     @BeforeMethod
     public void setUp(){
-
-
         System.out.println("BEFORE METHOD");
         System.out.println("WebDriver,Opening Browser");
     }
