@@ -46,7 +46,7 @@ public class ExplicitWaitExample {
     }
 
     @Test
-    public void test2(){
+    public void test2() throws InterruptedException {
         driver.get("http://practice.cybertekschool.com/dynamic_controls");
 
         //click enable
@@ -55,7 +55,7 @@ public class ExplicitWaitExample {
         //finding inputbox
         WebElement inputBox = driver.findElement(By.cssSelector("#input-example>input"));
 
-        WebDriverWait wait = new WebDriverWait(driver,2);
+        WebDriverWait wait = new WebDriverWait(driver,5);
 
         wait.until(ExpectedConditions.elementToBeClickable(inputBox));
 
@@ -63,6 +63,7 @@ public class ExplicitWaitExample {
 
         inputBox.sendKeys("MikeSmith");
 
+        Thread.sleep(2000);
     }
 
 

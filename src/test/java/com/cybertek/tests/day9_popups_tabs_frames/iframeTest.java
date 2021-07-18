@@ -66,8 +66,8 @@ public class iframeTest {
             //top
                 //left
                 //middle
-                     //firstframe
-                            //secondframe
+                        //firstFrame
+                                //smallFrame
                 //right
             //bottom
         /*
