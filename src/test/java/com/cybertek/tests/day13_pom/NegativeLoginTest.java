@@ -25,7 +25,7 @@ public class NegativeLoginTest extends TestBase {
 
         LoginPage loginPage = new LoginPage();
 
-        loginPage.usernameInput.sendKeys("someusernames");
+        loginPage.usernameInput.sendKeys("someusername");
         loginPage.passwordInput.sendKeys("UserUser123");
         loginPage.loginBtn.click();
 
