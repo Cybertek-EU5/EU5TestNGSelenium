@@ -1,5 +1,6 @@
 package com.cybertek.tests.day12_properties_driver_tests;
 
+import com.cybertek.utilities.ConfigurationReader;
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
@@ -29,6 +30,9 @@ public class SingletonTest {
         WebDriver driver = Driver.get();
 
         driver.get("https://www.amazon.com");
+
+
+        Driver.get().get("https://www.amazon.com");
     }
 
 }

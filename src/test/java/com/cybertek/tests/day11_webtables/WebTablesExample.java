@@ -25,11 +25,11 @@ public class WebTablesExample {
         driver.get("http://practice.cybertekschool.com/tables");
     }
 
-    @AfterMethod
-    public void tearDown() throws InterruptedException {
-        Thread.sleep(2000);
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown() throws InterruptedException {
+//        Thread.sleep(2000);
+//        driver.quit();
+//    }
 
     @Test
     public void printTable(){
