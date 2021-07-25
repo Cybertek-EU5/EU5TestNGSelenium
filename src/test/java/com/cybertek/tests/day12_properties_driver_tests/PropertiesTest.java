@@ -15,6 +15,7 @@ public class PropertiesTest {
         String browserType = ConfigurationReader.get("browser");
 
         System.out.println("browserType = " + browserType);
+        System.out.println("Browser: "+ConfigurationReader.get("browser"));
 
         String url = ConfigurationReader.get("url");
 
