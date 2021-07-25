@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Vytrack Automation" verbose="1">
+    <test name="Vytrack Smoke Test">
+       <classes>
+           <class name="com.cybertek.tests.day11_webtables.WebTablesExample">
+               <methods>
+                   <exclude name="getAllCellInOneRow"></exclude>
+               </methods>
+           </class>
+       </classes>
+    </test>
+</suite>
