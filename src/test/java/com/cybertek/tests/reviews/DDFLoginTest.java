@@ -32,7 +32,11 @@ public class DDFLoginTest extends TestBase {
 
         loginPage.login(username,password);
 
-//        DashboardPage dashboardPage = new DashboardPage();
+       DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.waitUntilLoaderScreenDisappear();
+
+        String actualFullName = dashboardPage.getUserName();
+        String expectedFullName = firstName+" "+lastName;
 
 
 
