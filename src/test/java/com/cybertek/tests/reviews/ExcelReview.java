@@ -1,5 +1,6 @@
 package com.cybertek.tests.reviews;
 
+import com.cybertek.utilities.ExcelUtil;
 import com.github.javafaker.Faker;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -27,14 +28,23 @@ public class ExcelReview {
     public void createUserExcelFile() throws IOException {
 
 
+        ExcelUtil excelUtil = new ExcelUtil("src/test/resources/Vytracktestdata.xlsx","QA3-short");
         int count=1;
-        for (int i = 0; i <5 ; i++) {
+        int count2=1;
+        for (int i = 0; i <13 ; i++) {
 
-            String password ="UserUser123";
-            String username = "User"+count;
-            String firstName= faker.name().firstName();
-            String lastName= faker.name().lastName();
+//            String password ="UserUser123";
+//            String username = "User"+count;
+//            String firstName= faker.name().firstName();
+//            String lastName= faker.name().lastName();
+
+            String username = excelUtil.getCellData(count2,0);
+            String password = excelUtil.getCellData(count2, 1);
+            String firstName =excelUtil.getCellData(count,2);
+            String lastName =excelUtil.getCellData(count,3);;
+
             count++;
+            count2++;
             users.add(new Users(username, password,firstName, lastName));
         }
 
@@ -45,7 +55,7 @@ public class ExcelReview {
         Font headerFont = workbook.createFont();
         headerFont.setBold(true);
         headerFont.setFontHeightInPoints((short) 15);
-        headerFont.setColor(IndexedColors.LIGHT_BLUE.getIndex());
+        headerFont.setColor(IndexedColors.DARK_GREEN .getIndex());
 
         CellStyle headerCellStyle = workbook.createCellStyle();
 
@@ -59,8 +69,9 @@ public class ExcelReview {
             cell.setCellValue(columns[i]);
             cell.setCellStyle(headerCellStyle);
         }
-        int rowCount =1;
 
+
+        int rowCount =1;
         for ( Users user: users) {
             Row row = sheet.createRow(rowCount++);
 
@@ -82,6 +93,34 @@ public class ExcelReview {
         workbook.close();
 
     }
+
+
+
+
+    @Test
+    public  void excelTest(){
+
+        ExcelUtil excelUtil = new ExcelUtil("Users.xlsx","Users");
+
+        System.out.println(excelUtil.rowCount());
+
+        System.out.println(excelUtil.getDataArray()[9][2]);
+
+        System.out.println(excelUtil.getCellData(9,2));
+
+        System.out.println(excelUtil.getColumnsNames());
+
+        System.out.println(excelUtil.columnCount());
+
+        System.out.println(excelUtil.getDataList().get(0).get("lastName"));
+
+
+
+
+    }
+
+
+
 
 
 
