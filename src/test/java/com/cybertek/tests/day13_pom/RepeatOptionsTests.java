@@ -100,8 +100,10 @@ public class RepeatOptionsTests extends TestBase {
         List<WebElement> actualOptions = repeatsDropdown.getOptions();
         for (WebElement option : actualOptions) {
             //get text of each element and add to actual List
+            System.out.println(option.getText());
             actualList.add(option.getText());
         }
+        System.out.println(actualList);
         //ready method for getting text of list of web elements
         List<String> actualList2 = BrowserUtils.getElementsText(actualOptions);
         //Verify that repeat options are Daily, Weekly, Monthly,Yearly(in this order)
