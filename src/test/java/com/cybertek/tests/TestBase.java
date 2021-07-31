@@ -25,6 +25,9 @@ public class TestBase {
     //this will  define a test, enables adding logs, authors, test steps
     protected static ExtentTest extentLogger;
 
+    //env set up
+   protected  String url;
+
     @BeforeTest
     public void setUpTest(){
         //initialize the class
@@ -51,13 +54,22 @@ public class TestBase {
     }
 
     @BeforeMethod
-    public void setUp(){
+    @Parameters("env")
+    public void setUp(@Optional String env){
+
+        System.out.println("env== " + env);
+        if (env==null){
+            url =ConfigurationReader.get("url");
+        }else{
+
+            url = ConfigurationReader.get(env+"_url");
+        }
         driver = Driver.get();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         actions = new Actions(driver);
         wait = new WebDriverWait(driver,10);
-        driver.get(ConfigurationReader.get("url"));
+        driver.get(url);
 
     }
     //ITestResult class describes the result of a test in TestNG

@@ -31,7 +31,7 @@ public class ExcelReview {
         ExcelUtil excelUtil = new ExcelUtil("src/test/resources/Vytracktestdata.xlsx","QA3-short");
         int count=1;
         int count2=1;
-        for (int i = 0; i <13 ; i++) {
+        for (int i = 0; i <6 ; i++) {
 
 //            String password ="UserUser123";
 //            String username = "User"+count;
